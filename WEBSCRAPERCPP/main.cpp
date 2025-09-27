@@ -13,16 +13,15 @@ size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
     size_t realsize = size * nmemb;
     auto *newm = static_cast<Memory *>(userdata);
     char *temp = new char[newm->size + realsize + 1];
-    memcpy(temp, newm->data, newm->size);
+    memcpy(temp, newm-> data, newm -> size);
     memcpy(temp + newm->size, ptr, realsize);
+    temp[newm->size + realsize] = '\0';
 
-    delete[] newm->data;
-    newm->data = temp;
+    delete [] newm -> data;
+    newm -> data = temp;
     newm->size += realsize;
     newm->data[newm->size] = '\0';
 
-
-    return realsize;
 }
 
 int main()
@@ -33,6 +32,7 @@ int main()
 
     if (curl)
     {
+
         Memory memory {};
         memory.data = static_cast<char*> (malloc(1));
         memory.size = 1;
