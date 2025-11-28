@@ -1,5 +1,6 @@
 #include <iostream>
 #include <curl/curl.h>
+#include <gumbo.h>
 using namespace std;
 
 
@@ -14,9 +15,7 @@ int main()
 {
     CURL *curl = curl_easy_init();
 
-
-
-
+    
         string memory;
         curl_easy_setopt(curl, CURLOPT_URL, "https://www.scrapethissite.com/pages/simple/");
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
@@ -29,7 +28,11 @@ int main()
             cerr << "curl_easy_perform() failed: ";
         }
         curl_easy_cleanup(curl);
-        cout << memory << "balls" << endl;
+        GumboOutput* output = gumbo_parse(memory.c_str());
+
+
+
+        cout << output << endl;
 
     return 0;
 

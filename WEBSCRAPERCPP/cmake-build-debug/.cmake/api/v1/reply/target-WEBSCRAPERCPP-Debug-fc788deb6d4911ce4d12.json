@@ -11,7 +11,9 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries"
+			"link_directories",
+			"target_link_libraries",
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -25,13 +27,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 11,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 8,
 				"parent" : 0
 			}
 		]
@@ -43,6 +57,13 @@
 			[
 				{
 					"fragment" : "-g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/opt/homebrew/opt/gumbo-parser/include"
 				}
 			],
 			"language" : "CXX",
@@ -75,7 +96,21 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-L/opt/homebrew/opt/gumbo-parser/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/homebrew/opt/gumbo-parser/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
 				"fragment" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/lib/libcurl.tbd",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lgumbo",
 				"role" : "libraries"
 			}
 		],
